@@ -5,7 +5,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import AppRouters from '~/navigators/AppRouters';
 import {Provider} from 'react-redux';
 import store from '~/redux/store';
-import '~/utils/locales/i18n';
+import './src/shared/locales/i18n';
 import {
   initialWindowMetrics,
   SafeAreaProvider,

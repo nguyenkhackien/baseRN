@@ -1,11 +1,11 @@
-import {Text, Button, SafeAreaView, StyleSheet} from 'react-native';
+import { Text, Button, SafeAreaView, StyleSheet } from 'react-native';
 import React from 'react';
-import {useAppDispatch} from '~/redux/hooks';
-import {handleLogin} from '~/thunks/auth/authThunk';
-import {handleApiError} from '~/utils/helper/helpers';
-import {useTranslation} from 'react-i18next';
-import {TextInput} from 'react-native-gesture-handler';
-import {authActions} from '~/thunks/auth/authSlice';
+import { useAppDispatch } from '~/redux/hooks';
+import { handleLogin } from '~/thunks/auth/authThunk';
+import { handleApiError } from '~/utils/helper/helpers';
+import { useTranslation } from 'react-i18next';
+import { TextInput } from 'react-native-gesture-handler';
+import { authActions } from '~/thunks/auth/authSlice';
 
 const LoginScreen = () => {
   //#region Destructuring Props
@@ -13,7 +13,7 @@ const LoginScreen = () => {
 
   //#region Declare Hook
   const dispatch = useAppDispatch();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   //#endregion Declare Hook
 
   //#region Selector
@@ -43,10 +43,10 @@ const LoginScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={{fontSize: 30, alignSelf: 'center'}}>Login</Text>
-      <TextInput placeholder="Email" style={styles.input} />
-      <TextInput placeholder="Password" style={styles.input} />
-      <Button title="Login" onPress={login} />
+      <Text style={{ fontSize: 30, alignSelf: 'center' }}>{t('login')}</Text>
+      <TextInput placeholder='Email' style={styles.input} />
+      <TextInput placeholder='Password' style={styles.input} />
+      <Button title='Login' onPress={login} />
     </SafeAreaView>
   );
 };

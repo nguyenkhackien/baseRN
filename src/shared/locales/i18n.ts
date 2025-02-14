@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import en from './en.json';
-import {LanguageEnum} from '../enum';
+import {LanguageEnum} from '~/utils/enum';
 
 export const languageDetector = {
   type: 'languageDetector' as 'languageDetector',
