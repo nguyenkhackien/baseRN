@@ -81,6 +81,8 @@ __tests__
 #env
 *.env
 *.env.dev
+*.env.stag
+*.env.prod
 *env.stag
 yarn.lock
 # react-native-config codegen

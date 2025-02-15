@@ -1,16 +1,17 @@
-import {Text, StyleSheet, SafeAreaView, Button} from 'react-native';
+import { Text, StyleSheet, SafeAreaView, Button } from 'react-native';
 import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useTranslation} from 'react-i18next';
-import {useAppDispatch} from '~/redux/hooks';
-import {authActions} from '~/thunks/auth/authSlice';
+import { useTranslation } from 'react-i18next';
+import { useAppDispatch } from '~/redux/hooks';
+import { authActions } from '~/thunks/auth/authSlice';
+import Config from 'react-native-config';
 
 const HomeScreen = () => {
   //#region Destructuring Props
   //#endregion Destructuring Props
 
   //#region Declare Hook
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   //#endregion Declare Hook
 
@@ -31,8 +32,8 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={{fontSize: 30, alignSelf: 'center'}}> {t('home')}</Text>
-      <Button title="Logout" onPress={logout} />
+      <Text style={{ fontSize: 30, alignSelf: 'center' }}> {t('home')}</Text>
+      <Button title='Logout' onPress={logout} />
     </SafeAreaView>
   );
 };

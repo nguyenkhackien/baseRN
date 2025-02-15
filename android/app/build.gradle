@@ -1,7 +1,15 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+// config env
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
+// Cấu hình các file môi trường cho từng môi trường khác nhau
+project.ext.envConfigFiles = [
+    dev: ".env.dev",
+    stag: ".env.stag",
+    prod: ".env.production"
+]
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -82,8 +90,29 @@ android {
         applicationId "com.bor_moblie"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode project.env.get("VERSION_CODE").toInteger()
+        versionName project.env.get("VERSION_NAME") 
+    }
+    flavorDimensions "default"
+    productFlavors {
+        prod {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId rootProject.ext.applicationId
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "app_name", project.env.get("APP_NAME")
+        }
+        stag {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId rootProject.ext.applicationId
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "app_name", project.env.get("APP_NAME")
+        }
+        dev {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId rootProject.ext.applicationId
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "app_name", project.env.get("APP_NAME")
+        }
     }
     signingConfigs {
         debug {
