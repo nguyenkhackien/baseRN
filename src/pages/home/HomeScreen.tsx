@@ -32,7 +32,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={{ fontSize: 30, alignSelf: 'center' }}> {t('home')}</Text>
+      <Text style={{ fontSize: 30, alignSelf: 'center' }}> {t('home')} </Text>
       <Button title='Logout' onPress={logout} />
     </SafeAreaView>
   );
